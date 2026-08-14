@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FAF7EF;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(28,37,65,0.05) 1px, transparent 0);
+  background-size: 22px 22px;
+  color: #1C2541;
+}
+
+::selection {
+  background: #D4A24C;
+  color: #1C2541;
+}
+
+/* Perforated / ticket edge used on note & purchase cards */
+.ticket-edge {
+  position: relative;
+}
+.ticket-edge::before,
+.ticket-edge::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background: #FAF7EF;
+  border-radius: 9999px;
+  z-index: 5;
+}
+.ticket-edge::before { left: -8px; }
+.ticket-edge::after { right: -8px; }
+
+.dashed-divider {
+  border-top: 2px dashed rgba(28,37,65,0.18);
+}
+
+/* Rotated library-stamp badge */
+.stamp {
+  transform: rotate(-8deg);
+  border: 2px solid currentColor;
+  border-radius: 6px;
+  letter-spacing: 0.08em;
+  box-shadow: 0 0 0 2px currentColor inset;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid #3A5A99;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
